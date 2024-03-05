@@ -38,7 +38,7 @@ for i in range(len(header)):
     # ith sample vs ctrl
     si_ctrl_pvalue = ttest_ind(df[df["label"] == str(header[i])][str(feature)].dropna().to_numpy(),
                                df[df["label"] == str(header[ctrl_index])][str(feature)].dropna().to_numpy(),
-                               equal_var=False)[1]
+                               equal_var=False, alternative='two-sided')[1]
     print("p-value for " + header[i] + " and " + header[ctrl_index] + ": ", si_ctrl_pvalue)
 
 # Plotting
